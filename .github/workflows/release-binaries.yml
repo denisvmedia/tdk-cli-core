@@ -97,7 +97,7 @@ jobs:
             echo "Releasing ${version}."
             echo "bumped=false" >> "$GITHUB_OUTPUT"
           else
-            echo "::notice::${current} is already released; releasing this commit as ${version}."
+            echo "::notice::package.json says ${current}, but ${latest:-that version} is already published; releasing this commit as ${version}."
             node -e '
               const fs = require("fs");
               for (const file of ["package.json", "cli/package.json"]) {
